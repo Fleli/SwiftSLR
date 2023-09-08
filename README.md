@@ -49,4 +49,4 @@ SwiftSLR currently does not accept empty productions. Fixing this is on the agen
 
 ## Commit History
 
-This project did not start out as a package, but rather as a command-line tool. To make importing and using this tool, it is now converted to a package. The old project (with full commit history) is available at https://github.com/Fleli/SwiftSLR-Commits.
+This project did not start out as a package, but rather as a command-line tool. To allow importing and using this tool, it is now converted to a package. The old project (with full commit history) is available at https://github.com/Fleli/SwiftSLR-Commits.
