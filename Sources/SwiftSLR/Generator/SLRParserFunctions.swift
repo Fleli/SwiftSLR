@@ -74,7 +74,7 @@ extension SwiftLibrary {
                 
                 let top = stack[stack.count - 1]
                 
-                if top.children.count == 0 {
+                if top.token != nil {
                     return false
                 }
                 
