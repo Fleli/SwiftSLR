@@ -1,7 +1,7 @@
 extension SwiftLibrary {
     
     
-    static func typesInFile(_ includingToken: Bool) -> String {
+    static func typesInFile(_ includingToken: Bool, visibility: String) -> String {
         
         let tail = includingToken ? """
         
@@ -28,7 +28,7 @@ extension SwiftLibrary {
             case abruptEnd(_ nonTerminal: String, _ expected: String)
         }
         
-        class SLRNode: CustomStringConvertible {
+        \(visibility) class SLRNode: CustomStringConvertible {
             
             let type: String
             let children: [SLRNode]
