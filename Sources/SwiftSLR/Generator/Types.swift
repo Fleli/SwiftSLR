@@ -5,14 +5,14 @@ extension SwiftLibrary {
         
         let tail = includingToken ? """
         
-        struct Token: CustomStringConvertible {
+        \(visibility) struct Token: CustomStringConvertible {
             
-            public var type: String
-            public var content: String
+            \(visibility)  var type: String
+            \(visibility)  var content: String
             
-            public var description: String { type }
+            \(visibility)  var description: String { type }
             
-            public init(_ type: String, _ content: String) {
+            \(visibility)  init(_ type: String, _ content: String) {
                 
                 self.type = type
                 self.content = content
@@ -23,21 +23,21 @@ extension SwiftLibrary {
         """ : ""
         
         return """
-        enum ParseError: Error {
+        \(visibility) enum ParseError: Error {
             case unexpected(_ nonTerminal: String, _ content: String, _ expected: String)
             case abruptEnd(_ nonTerminal: String, _ expected: String)
         }
         
         \(visibility) class SLRNode: CustomStringConvertible {
             
-            let type: String
-            let children: [SLRNode]
+            \(visibility) let type: String
+            \(visibility) let children: [SLRNode]
             
-            let token: Token?
+            \(visibility) let token: Token?
             
-            var description: String { "\\(type)" }
+            \(visibility) var description: String { "\\(type)" }
             
-            func printFullDescription(_ indent: Int) {
+            \(visibility) func printFullDescription(_ indent: Int) {
                 print(String(repeating: "|   ", count: indent) + type)
                 for child in children {
                     child.printFullDescription(indent + 1)
