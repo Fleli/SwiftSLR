@@ -19,6 +19,7 @@ class Grammar {
         self.initialProduction = initialProduction
         
         initialProduction.isAccepting = true
+        Swift.print("Now \(initialProduction) is accepting")
         
         addProduction(self.initialProduction)
         

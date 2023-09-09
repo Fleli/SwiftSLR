@@ -99,6 +99,7 @@ class Production: Hashable, CustomStringConvertible {
     func withAdvancedMarker() -> Production {
         let newProduction = Production(lhs, rhs, marker + 1)
         newProduction.grammar = grammar
+        newProduction.isAccepting = self.isAccepting
         return newProduction
     }
     

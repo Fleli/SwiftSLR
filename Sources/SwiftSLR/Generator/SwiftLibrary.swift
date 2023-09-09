@@ -26,7 +26,7 @@ enum SwiftLibrary {
         return """
                     
                     if topOfStackIsAmong(\(followSetString)) {
-                        reduce(\(number), to: "\(nonTerminal)")
+                        reduce(\(number), to: "\(nonTerminal)")\(reducingProduction.isAccepting ? "\n\t\t\taccepted = true" : "")
                         return
                     }
                     
