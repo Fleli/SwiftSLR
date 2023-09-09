@@ -1,8 +1,12 @@
 import Foundation
 
-public class Generator {
+public func generate(from input: String, includingToken: Bool, location: String, parseFile: String, visibility: String = "public") throws {
+    try Generator.generate(from: input, includingToken: includingToken, location: location, parseFile: parseFile, visibility: visibility)
+}
+
+private class Generator {
     
-    public static func generate(from input: String, includingToken: Bool, location: String, parseFile: String) throws {
+    static func generate(from input: String, includingToken: Bool, location: String, parseFile: String, visibility: String) throws {
         
         let productions = try interpretInput(input)
         
@@ -14,7 +18,7 @@ public class Generator {
         
         automaton.print()
         
-        let code = SwiftGenerator.generate(parseFile, from: automaton, includingToken, grammar)
+        let code = SwiftGenerator.generate(parseFile, from: automaton, includingToken, grammar, visibility)
         
         let data = code.data(using: .ascii)
         let fileManager = FileManager()
