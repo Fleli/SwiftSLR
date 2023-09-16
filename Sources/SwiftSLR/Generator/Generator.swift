@@ -22,7 +22,7 @@ private class Generator {
         
         let data = code.data(using: .ascii)
         let fileManager = FileManager()
-        let didCreate = fileManager.createFile(atPath: location + parseFile + ".swift", contents: data)
+        let didCreate = fileManager.createFile(atPath: location + "/" + parseFile + ".swift", contents: data)
         
         print("Created file: \(didCreate)")
         
