@@ -26,7 +26,7 @@ extension SwiftLibrary {
                     return nil
                 }
                 
-                return stack[0]
+                return stack[0].children[0]
                 
             }
             
