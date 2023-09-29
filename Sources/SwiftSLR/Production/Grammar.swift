@@ -239,7 +239,10 @@ class Grammar {
         for nonTerminal in production.nonTerminals {
             
             for nextNonTerminal in production.nonTerminalsAfter(nonTerminal) {
-                let otherFirst = firstSets[nextNonTerminal]!
+                guard let otherFirst = firstSets[nextNonTerminal] else {
+                    Swift.print("Other first was nil. Next non terminal is \(nextNonTerminal)")
+                    continue
+                }
                 followSets[nonTerminal]?.formUnion(otherFirst)
             }
             
