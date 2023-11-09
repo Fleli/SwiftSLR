@@ -48,11 +48,9 @@ class SwiftGenerator {
         
         function += reduceStatement(state, grammar)
         
-        if state.id > 0 {
-            
-            let errorMessage = state.errorMessage
-            
-            function += """
+        let errorMessage = state.errorMessage
+        
+        function += """
                     if index < input.count {
                         throw ParseError.unexpected("\(errorMessage.nonTerminal)", input[index].content, "\(errorMessage.expected?.description ?? "reduction")")
                     } else {
@@ -61,8 +59,6 @@ class SwiftGenerator {
                     
             
             """
-            
-        }
         
         function += "\t}\n\t\n"
         
