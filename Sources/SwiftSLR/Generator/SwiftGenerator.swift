@@ -52,7 +52,7 @@ class SwiftGenerator {
         
         function += """
                     if index < input.count {
-                        throw ParseError.unexpected("\(errorMessage.nonTerminal)", input[index].content, "\(errorMessage.expected?.description ?? "reduction")")
+                        throw ParseError.unexpected("\(errorMessage.nonTerminal)", input[index].description, "\(errorMessage.expected?.description ?? "reduction")")
                     } else {
                         throw ParseError.abruptEnd("\(errorMessage.nonTerminal)", "\(errorMessage.expected?.description ?? "reduction")")
                     }
